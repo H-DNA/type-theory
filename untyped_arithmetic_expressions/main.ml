@@ -41,7 +41,7 @@ let rec eval1 t = match t with
       TmIsZero(info, t1')
   | _ -> raise NoRuleApplies
 
-(* Natural/Small-step operational semantics *)
+(* Structural/Small-step operational semantics *)
 let rec eval t =
   try let t' = eval1 t
     in eval t'
