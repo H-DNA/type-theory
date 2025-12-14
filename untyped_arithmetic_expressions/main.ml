@@ -41,7 +41,35 @@ let rec eval1 t = match t with
       TmIsZero(info, t1')
   | _ -> raise NoRuleApplies
 
+(* Natural/Small-step operational semantics *)
 let rec eval t =
   try let t' = eval1 t
     in eval t'
   with NoRuleApplies -> t
+
+(* Natural/Big-step operational semantics *)
+let rec eval' t = match t with
+    TmIf(info, t1, t2, t3) ->
+      let t1' = eval' t1 in
+        match t1' with
+            TmTrue(_) -> eval' t2
+          | TmFalse(_) -> eval' t3
+          | _ -> t
+  | TmSucc(info, t1) ->
+      let t1' = eval' t1 in
+        match t1' with
+            _ when isnumericval t1' -> TmSucc(info, t1')
+          | _ -> t
+  | TmPred(info, t1) ->
+      let t1' = eval' t1 in
+        match t1' with
+            TmZero(info) -> TmZero(info)
+          | TmSucc(info, nv) when isnumericval nv -> nv
+          | _ -> t
+  | TmIsZero(info, t1) ->
+      let t1' = eval' t1 in
+        match t1' with
+            TmZero(_) -> TmTrue(dummyinfo)
+          | _ when isnumericval t1' -> TmFalse(dummyinfo)
+          | _ -> t
+  | _ -> t
