@@ -1,2 +1,3 @@
-# TAPL
-TAPL language implementations in OCaml
+# Type theory
+
+Exercises for TAPL and PLAI.
