@@ -22,3 +22,10 @@ Definition next_working_day (d : day) : day :=
   | saturday => monday
   | sunday => monday
   end.
+
+(* Invoke a function using the `Compute` command *)
+Compute (next_working_day friday)
+(** ==> monday : day **)
+
+Compute (next_working_day (next_working_day saturday)).
+(** ==> tuesday : day **)
