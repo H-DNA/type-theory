@@ -9,7 +9,7 @@ Inductive day : Type :=
   | friday
   | saturday
   | sunday.
-(**
+(** ==>
 day is defined
 day_rect is defined
 day_ind is defined
@@ -29,6 +29,7 @@ Definition next_working_day (d : day) : day :=
   | saturday => monday
   | sunday => monday
   end.
+(** ==> next_working_day is defined **)
 
 (* Invoke a function using the `Compute` command *)
 Compute (next_working_day friday)
