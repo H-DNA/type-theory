@@ -41,3 +41,6 @@ Compute (next_working_day (next_working_day saturday)).
 (* Record expectations using the `Example` command *)
 Example test_next_working_day : (next_working_day (next_working_day saturday)) = tuesday.
 (** ==> next_working_day (next_working_day saturday) = tuesday **)
+
+Proof. simpl. reflexivity. Qed.
+(** "The assertion we've just made can be proved by observing that both sides of the equality evaluate to the same thing." **)
