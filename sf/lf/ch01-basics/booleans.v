@@ -21,3 +21,28 @@ Definition orb (b1 : bool) (b2 : bool) : bool :=
   | true => true
   | false => b2
   end.
+
+(* Examples *)
+
+Example test_orb1: (orb true false) = true.
+Proof. simpl. reflexivity. Qed.
+Example test_orb2: (orb false false) = false.
+Proof. simpl. reflexivity. Qed.
+Example test_orb3: (orb false true) = true.
+Proof. simpl. reflexivity. Qed.
+Example test_orb4: (orb true true) = true.
+Proof. simpl. reflexivity. Qed.
+
+Example test_andb1: (andb true false) = false.
+Proof. simpl. reflexivity. Qed.
+Example test_andb2: (andb false false) = false.
+Proof. simpl. reflexivity. Qed.
+Example test_andb3: (andb false true) = false.
+Proof. simpl. reflexivity. Qed.
+Example test_andb4: (andb true true) = true.
+Proof. simpl. reflexivity. Qed.
+
+Example test_negb1: (negb true) = false.
+Proof. simpl. reflexivity. Qed.
+Example test_negb2: (negb false) = true.
+Proof. simpl. reflexivity. Qed.
