@@ -53,3 +53,16 @@ Notation "x || y" := (orb x y).
 
 Example test_orb5: false || false || true = true.
 Proof. simpl. reflexivity. Qed.
+
+(* Conditional expression *)
+Definition negb' (b : bool) : bool :=
+  if b then false
+  else true.
+
+Definition andb' (b1 : bool) (b2 : bool) : bool :=
+  if b1 then b2
+  else false.
+
+Definition orb' (b1: bool) (b2 : bool) : bool :=
+  if b1 then true
+  else b2.
