@@ -9,6 +9,13 @@ Inductive day : Type :=
   | friday
   | saturday
   | sunday.
+(**
+day is defined
+day_rect is defined
+day_ind is defined
+day_rec is defined
+day_sind is defined
+**)
 
 (* Pattern matching *)
 (** The type signature is optional due to Rocq's ability to perform type inference - but it is included anyway to enhance readability **)
