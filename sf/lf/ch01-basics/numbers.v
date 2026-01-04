@@ -21,4 +21,11 @@ Module NatPlayground.
   (* Natural numbers receive a special treament regarding parsing and printing: ordinary decimal numerals can be used *)
   Check (S (S (S (S O)))).
   (* ==> 4 : nat *)
+
+  Definition minusTwo (n : nat) : nat :=
+    match n with
+    | O => O
+    | S O => O
+    | S (S n') => n'
+    end.
 End NatPlayground.
