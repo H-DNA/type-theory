@@ -53,4 +53,11 @@ Module NatPlayground.
   Proof. simpl. reflexivity. Qed.
   Example test_odd2: odd 4 = false.
   Proof. simpl. reflexivity. Qed.
+
+  (* Arithmetic operations *)
+  Fixpoint plus (n : nat) (m : nat) : nat :=
+    match n with
+    | O => m
+    | S n' => S (plus n' m)
+    end.
 End NatPlayground.
