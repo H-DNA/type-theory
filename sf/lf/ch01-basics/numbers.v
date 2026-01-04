@@ -60,4 +60,11 @@ Module NatPlayground.
     | O => m
     | S n' => S (plus n' m)
     end.
+
+  (** If two or more arguments have the same type, we can use a shorthand **)
+  Fixpoint mult (n m : nat) : nat :=
+    match n with
+    | O => O
+    | S n' => plus m (mult n' m)
+    end.
 End NatPlayground.
