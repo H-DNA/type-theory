@@ -67,4 +67,12 @@ Module NatPlayground.
     | O => O
     | S n' => plus m (mult n' m)
     end.
+
+  (** Match multiple expressions at once **)
+  Fixpoint minus (n m : nat) : nat :=
+    match n, m with
+    | O, _ => O
+    | _, O => n
+    | S n', S m' => minus n' m'
+    end.
 End NatPlayground.
