@@ -25,15 +25,14 @@
             # Racket (includes DrRacket)
             racket
 
-            # Rocq (formerly Coq)
-            rocq-core
+            # Rocq/Coq (coq includes coqidetop for IDE support)
+            coq
           ];
-
-          shellHook = ''
+         shellHook = ''
             echo "Type theory dev environment loaded"
             echo "  - OCaml $(ocaml --version)"
             echo "  - Racket $(racket --version)"
-            echo "  - Rocq $(rocq --version | head -1)"
+            echo "  - Coq $(coqc --version | head -1)"
           '';
         };
       }
