@@ -141,4 +141,18 @@ Module NatPlayground.
 
   Theorem mult_0_l : forall n : nat, 0 * n = 0.
   Proof. intros n. simpl. reflexivity. Qed.
+
+  (* Proof by rewriting - A theorem that only holds when a specific condition is met *)
+  Theorem plus_id_example : forall n m : nat,
+    n = m ->
+    n + n = m + m.
+  Proof.
+    (* move both quantifiers into the context: *)
+    intros n m.
+    (* move the hypothesis into the context: *)
+    intros H.
+    (* rewrite the goal using the hypothesis: *)
+    rewrite → H.
+    reflexivity.
+  Qed.
 End NatPlayground.
