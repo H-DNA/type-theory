@@ -130,4 +130,9 @@ Module NatPlayground.
   Proof. simpl. reflexivity. Qed.
   Example test_leb3': (4 <=? 2) = false.
   Proof. simpl. reflexivity. Qed.
+
+  (* A theorem that proves 0 is a neutral element for + on the left *)
+  Theorem plus_0_n' : forall n : nat, 0 + n = n.
+  Proof.
+    intros n. reflexivity. Qed.
 End NatPlayground.
