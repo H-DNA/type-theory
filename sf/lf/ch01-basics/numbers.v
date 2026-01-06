@@ -152,7 +152,7 @@ Module NatPlayground.
     (* move the hypothesis into the context: *)
     intros H.
     (* rewrite the goal using the hypothesis: *)
-    rewrite → H.
+    rewrite -> H.
     reflexivity.
   Qed.
 End NatPlayground.
