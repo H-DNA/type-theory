@@ -189,4 +189,17 @@ Module NatPlayground.
       + reflexivity.
       + reflexivity.
   Qed.
+
+  Theorem andb_commutative' : forall b c : bool,
+    andb b c = andb c b.
+  Proof.
+    intros b c.
+    destruct b eqn:Eb.
+    { destruct c eqn:Ec.
+      { reflexivity. }
+      { reflexivity. } }
+    { destruct c eqn:Ec.
+      { reflexivity. }
+      { reflexivity. } }
+  Qed.
 End NatPlayground.
