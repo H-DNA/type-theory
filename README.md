@@ -6,6 +6,8 @@
 
 Hands-on implementations of type systems, interpreters, and related concepts. Includes exercises from TAPL, PLAI, Software Foundations, and other sources.
 
+**Concepts tracker**: [https://painted-jodhpur-6fe.notion.site/Concepts-master-2bbaa8fcd08880cc91bacfef709d0aec]
+
 ## Setup
 
 This project uses [Nix](https://nixos.org/) for reproducible development environments.
