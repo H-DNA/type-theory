@@ -1,45 +1,76 @@
 # Type Theory
 
-![Status](https://img.shields.io/badge/status-active-brightblue)
+![OCaml](https://img.shields.io/badge/OCaml-EC6813?logo=ocaml&logoColor=white)
+![Coq](https://img.shields.io/badge/Coq-CC2927?logo=coq&logoColor=white)
+![Racket](https://img.shields.io/badge/Racket-9F1D20?logo=racket&logoColor=white)
 
 Hands-on implementations of type systems, interpreters, and related concepts. Includes exercises from TAPL, PLAI, Software Foundations, and other sources.
+
+**Progress:** [Programming Language Journey Tracker](https://painted-jodhpur-6fe.notion.site/PLT-Home-2bbaa8fcd088806897fecb4271121468)
+
+## Setup
+
+This project uses [Nix](https://nixos.org/) for reproducible development environments.
+
+### Prerequisites
+
+- [Nix](https://nixos.org/download/) with flakes enabled
+
+### Getting Started
+
+```bash
+# Enter the development shell
+nix develop
+
+# Or use direnv for automatic activation
+echo "use flake" > .envrc && direnv allow
+```
+
+The dev shell provides:
+- **OCaml** — compiler, dune, utop, ocaml-lsp, ocamlformat
+- **Racket** — includes DrRacket
+- **Coq** — compiler and IDE support
+
+## Project Structure
+
+```
+.
+├── tapl/                 # Types and Programming Languages (OCaml)
+│   └── ch03-untyped-arithmetic/
+├── plai/                 # Programming Languages: Application and Interpretation (Racket)
+│   └── lambda-calc-evaluator/
+└── sf/                   # Software Foundations (Coq)
+    └── lf/               # Logical Foundations
+```
 
 ## Books
 
 ### TAPL — Types and Programming Languages
 
-- **Author**: Benjamin C. Pierce
-- **Published**: 2002 (MIT Press)
+- **Author:** Benjamin C. Pierce
+- **Language:** OCaml
+- **Link:** [MIT Press](https://mitpress.mit.edu/9780262162098/types-and-programming-languages/)
 
-The definitive textbook on type systems. Covers type systems, operational semantics, lambda calculus, subtyping, polymorphism, and type reconstruction. Exercises in **OCaml**.
+The definitive textbook on type systems. Covers type systems, operational semantics, lambda calculus, subtyping, polymorphism, and type reconstruction.
 
 ### PLAI — Programming Languages: Application and Interpretation
 
-- **Author**: Shriram Krishnamurthi
-- **First Published**: 2007 (continuously updated)
+- **Author:** Shriram Krishnamurthi
+- **Language:** Typed Plait (Racket)
+- **Link:** [plai.org](https://www.plai.org/)
 
-An interpreter-based approach to programming languages. Covers parsing, desugaring, interpreters, environments, mutation, objects, type systems, and continuations. Exercises in **Typed Plait**.
+An interpreter-based approach to programming languages. Covers parsing, desugaring, interpreters, environments, mutation, objects, type systems, and continuations.
 
 ### SF — Software Foundations
 
-- **Authors**: Benjamin C. Pierce et al.
-- **First Published**: 2007 (continuously updated)
+- **Authors:** Benjamin C. Pierce et al.
+- **Language:** Coq/Rocq
+- **Link:** [softwarefoundations.cis.upenn.edu](https://softwarefoundations.cis.upenn.edu/)
 
-A series of electronic textbooks on the mathematical underpinnings of reliable software using the Coq proof assistant. Exercises in **Coq**.
+A series of electronic textbooks on the mathematical underpinnings of reliable software using the Coq proof assistant.
 
-#### Volumes
-
-- **LF** — Logical Foundations: Introduction to Coq, functional programming, and theorem proving
-- **PLF** — Programming Language Foundations: Type systems and operational semantics in Coq
-- **VFA** — Verified Functional Algorithms: Formal verification of data structures
-- **QC** — QuickChick: Property-based testing in Coq
-
-## Concepts
-
-[List of concepts](https://painted-jodhpur-6fe.notion.site/ebd//2c2aa8fcd08880a4afbff270ae810072?v=2c2aa8fcd0888060a11e000cb2c7ea1b)
-
-## Sources
-
-- Pierce, B. C. (2002). *Types and Programming Languages*. MIT Press.
-- Krishnamurthi, S. (2007–present). *Programming Languages: Application and Interpretation*. https://www.plai.org/
-- Pierce, B. C. et al. (2007–present). *Software Foundations*. https://softwarefoundations.cis.upenn.edu/
+**Volumes:**
+- **LF** — Logical Foundations
+- **PLF** — Programming Language Foundations
+- **VFA** — Verified Functional Algorithms
+- **QC** — QuickChick: Property-based testing
