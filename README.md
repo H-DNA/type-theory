@@ -6,7 +6,7 @@
 
 Hands-on implementations of type systems, interpreters, and related concepts. Includes exercises from TAPL, PLAI, Software Foundations, and other sources.
 
-**Concepts tracker**: [Notion](https://painted-jodhpur-6fe.notion.site/Concepts-master-2bbaa8fcd08880cc91bacfef709d0aec]
+**Concepts tracker**: [Notion](https://painted-jodhpur-6fe.notion.site/Concepts-master-2bbaa8fcd08880cc91bacfef709d0aec)
 
 ## Setup
 
