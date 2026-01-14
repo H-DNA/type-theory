@@ -92,4 +92,39 @@ Module LateDays.
   Proof.
     reflexivity.
   Qed.
+
+  Definition lower_letter (l : letter) : letter :=
+    match l with
+    | A => B
+    | B => C
+    | C => D
+    | D => E
+    | E => F
+    | F => F
+    end.
+
+  Theorem lower_letter_F_is_F :
+    lower_letter F = F.
+  Proof.
+    simpl.
+    reflexivity.
+  Qed.
+
+  (* Lowered non-F letter is lower *)
+  Theorem lower_letter_lowers :
+    forall (l : letter),
+    letter_comparison F l = Lt -> letter_comparison (lower_letter l) l = Lt.
+  Proof.
+    intros l.
+    intros H.
+    destruct l.
+    - reflexivity.
+    - reflexivity.
+    - reflexivity.
+    - reflexivity.
+    - reflexivity.
+    - simpl in H.
+      rewrite <- H.
+      reflexivity.
+  Qed.
 End LateDays.
