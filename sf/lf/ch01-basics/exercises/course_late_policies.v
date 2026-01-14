@@ -46,4 +46,50 @@ Module LateDays.
     - reflexivity.
     - reflexivity.
   Qed.
+
+  Definition modifier_comparison (m1 m2 : modifier) : comparison :=
+  match m1, m2 with
+  | Plus, Plus => Eq
+  | Plus, _ => Gt
+  | Natural, Plus => Lt
+  | Natural, Natural => Eq
+  | Natural, _ => Gt
+  | Minus, (Plus | Natural) => Lt
+  | Minus, Minus => Eq
+  end.
+
+  (* Grade comparison - by letter first, then by modifier *)
+  Definition grade_comparison (g1 g2 : grade) : comparison :=
+  match g1, g2 with
+  | Grade l1 m1, Grade l2 m2
+      => match (letter_comparison l1 l2) with
+         | Lt => Lt
+         | Gt => Gt
+         | Eq => (modifier_comparison m1 m2)
+         end
+  end.
+
+  Example test_grade_comparison1 :
+    (grade_comparison (Grade A Minus) (Grade B Plus)) = Gt.
+  Proof.
+    reflexivity.
+  Qed.
+
+  Example test_grade_comparison2 :
+    (grade_comparison (Grade A Minus) (Grade A Plus)) = Lt.
+  Proof.
+    reflexivity.
+  Qed.
+
+  Example test_grade_comparison3 :
+    (grade_comparison (Grade F Plus) (Grade F Plus)) = Eq.
+  Proof.
+    reflexivity.
+  Qed.
+
+  Example test_grade_comparison4 :
+    (grade_comparison (Grade B Minus) (Grade C Plus)) = Gt.
+  Proof.
+    reflexivity.
+  Qed.
 End LateDays.
