@@ -130,12 +130,14 @@ Module LateDays.
 
   (* Lower grade *)
   Definition lower_grade (g : grade) : grade :=
-    match g with
-    | Grade m Plus => Grade m Natural
-    | Grade m Natural => Grade m Minus
-    | Grade F Minus => g
-    | Grade m Minus => Grade (lower_letter m) Plus
-    end.
+  match g with
+  | Grade l Plus => Grade l Natural
+  | Grade l Natural => Grade l Minus
+  | Grade l Minus => match l with
+                     | F => g
+                     | _ => Grade (lower_letter l) Plus
+                     end
+  end.
 
   Example lower_grade_A_Plus :
   lower_grade (Grade A Plus) = (Grade A Natural).
@@ -168,4 +170,36 @@ Proof. reflexivity. Qed.
 Example lower_grade_F_Minus :
   lower_grade (Grade F Minus) = (Grade F Minus).
 Proof. reflexivity. Qed.
+
+(* Lowered non-F-Minus-grade is lower *)
+Theorem lower_grade_lowers :
+  forall (g : grade),
+    grade_comparison (Grade F Minus) g = Lt ->
+    grade_comparison (lower_grade g) g = Lt.
+Proof.
+  intros g H.
+  destruct g as [l m].
+  destruct m.
+  - (* Plus case *)
+    simpl.
+    rewrite letter_comparison_Eq.
+    reflexivity.
+  - (* Natural case *)
+    simpl.
+    rewrite letter_comparison_Eq.
+    reflexivity.
+  - (* Minus case - need to destruct letter *)
+    destruct l.
+    + (* A Minus *) simpl. reflexivity.
+    + (* B Minus *) simpl. reflexivity.
+    + (* C Minus *) simpl. reflexivity.
+    + (* D Minus *) simpl. reflexivity.
+    + (* E Minus *) simpl. reflexivity.
+    + (* F Minus *)
+      rewrite lower_grade_F_Minus.
+      simpl in H.
+      simpl.
+      rewrite H.
+      reflexivity.
+Qed.
 End LateDays.
